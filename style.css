@@ -1,0 +1,244 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffb3c6 100%);
+    position: relative;
+}
+
+/* Typography */
+h1, h2 {
+    color: #800f2f;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.romantic-font {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-style: italic;
+    color: #a4133c;
+    min-height: 40px; 
+}
+
+p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #590d22;
+    min-height: 30px; 
+}
+
+.small-text {
+    font-size: 0.8rem;
+    color: #800f2f;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* Container utama yang memegang bentuk hati */
+.container {
+    /* Menggunakan vmin agar bentuk hati selalu fit dan tidak terpotong di layar manapun */
+    width: 92vmin;
+    height: 92vmin;
+    max-width: 750px; /* Diperbesar agar hatinya lebih luas */
+    max-height: 750px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 15px 35px rgba(164, 19, 60, 0.15));
+}
+
+/* Glass panel murni hanya sebagai background berbentuk hati */
+.heart-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    -webkit-mask-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* Area khusus teks yang dijamin tidak terpotong */
+.content-area {
+    position: relative;
+    z-index: 2;
+    /* Dikecilkan jadi 62% agar jarak teks ke pinggiran hati lebih longgar/luas */
+    width: 62%;
+    height: 62%;
+    /* Digeser ke atas sedikit agar menjauhi ujung lancip bawah hati */
+    transform: translateY(-9%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Steps - Soft Fade */
+.step {
+    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    width: 100%; 
+}
+
+.step.active {
+    display: block;
+    opacity: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Typewriter & Reveal Logic */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    pointer-events: auto;
+}
+
+/* Buttons */
+.btn {
+    font-family: inherit;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 500;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn {
+    background: #c9184a;
+    color: white;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(201, 24, 74, 0.2);
+}
+
+.primary-btn:hover {
+    background: #a4133c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(164, 19, 60, 0.4);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px; /* Jarak dijauhkan agar ada ruang untuk membesar */
+    position: relative;
+    min-height: 45px;
+}
+
+.btn-yes {
+    background: #ff4d6d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+    z-index: 2;
+    transform-origin: top center; /* Membesar ke arah bawah, bukan ke atas */
+}
+
+.btn-yes:hover {
+    background: #c9184a;
+    transform: scale(1.05);
+}
+
+.btn-no {
+    background: rgba(255, 255, 255, 0.95);
+    color: #590d22;
+    border: 1px solid rgba(255,255,255,1);
+    z-index: 100;
+}
+
+/* Romantic Falling Hearts & Sakura Petals */
+.falling-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    color: #fff0f3;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    opacity: 0.7;
+    animation: fallDown linear infinite, sway ease-in-out infinite alternate;
+}
+
+@keyframes fallDown {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+@keyframes sway {
+    0% { margin-left: -30px; }
+    100% { margin-left: 30px; }
+}
+
+.icon-wrapper {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Animasi Ledakan Hati yang Heboh (Jadian) */
+.heart-explosion {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+@keyframes explode {
+    0% { transform: translate(-50%, -50%) scale(0.1); opacity: 1; }
+    70% { opacity: 1; }
+    100% { 
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.5) rotate(720deg); 
+        opacity: 0; 
+    }
+}
