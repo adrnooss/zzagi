@@ -71,6 +71,13 @@ async function playStep(step) {
 function nextStep(targetStep) {
     if (isTyping) return;
 
+    // Menyalakan lagu secara otomatis saat pertama kali tombol diklik (karena browser wajibkan interaksi dulu)
+    const music = document.getElementById('bg-music');
+    if (music && music.paused) {
+        music.volume = 0.25; // Volume 25% agar tidak terlalu keras (soft)
+        music.play().catch(e => console.log("Gagal memutar lagu:", e));
+    }
+
     const currentStep = targetStep - 1;
     const currentEl = document.getElementById(`step-${currentStep}`);
     const nextEl = document.getElementById(`step-${targetStep}`);
@@ -220,27 +227,35 @@ function fireExplosion(container, emojis) {
 // Partikel kelopak bunga sakura / hati jatuh
 function createHearts() {
     const container = document.getElementById('falling-hearts');
-    const symbols = ['🌸', '🤍', '✨'];
-
+    // Kumpulan emoji super romantis dan estetik
+    const symbols = ['💖', '💕', '💗', '🌸', '✨', '🤍', '🌷', '🦋']; 
+    
     setInterval(() => {
         const heart = document.createElement('div');
         heart.classList.add('heart');
-        heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-
+        heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        
         heart.style.left = Math.random() * 100 + 'vw';
-
-        const duration = Math.random() * 13 + 12;
+        
+        // Waktu jatuh yang lembut dan lambat (10 - 22 detik)
+        const duration = Math.random() * 12 + 10; 
         const swayDuration = Math.random() * 3 + 2;
-
+        
         heart.style.animationDuration = `${duration}s, ${swayDuration}s`;
-        heart.style.fontSize = `${Math.random() * 12 + 10}px`;
-
+        
+        // Ukuran bervariasi (12px - 26px) agar terlihat ada yang jauh dan dekat
+        heart.style.fontSize = `${Math.random() * 14 + 12}px`;
+        
+        // Tambahan efek blur tipis secara acak untuk kesan sinematik (Depth of Field)
+        heart.style.filter = `blur(${Math.random() * 1.5}px)`;
+        heart.style.opacity = Math.random() * 0.5 + 0.4;
+        
         container.appendChild(heart);
-
+        
         setTimeout(() => {
             heart.remove();
         }, duration * 1000);
-    }, 800);
+    }, 450); // Muncul lebih sering agar suasananya meriah tapi tetap soft
 }
 
 function createConfetti() {

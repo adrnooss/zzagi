@@ -48,16 +48,14 @@ p {
 
 /* Container utama yang memegang bentuk hati */
 .container {
-    /* Menggunakan vmin agar bentuk hati selalu fit dan tidak terpotong di layar manapun */
-    width: 92vmin;
-    height: 92vmin;
-    max-width: 750px; /* Diperbesar agar hatinya lebih luas */
-    max-height: 750px;
+    /* Gunakan aspect-ratio agar selalu kotak sempurna walau isinya membludak */
+    width: 95vmin;
+    max-width: 750px;
+    aspect-ratio: 1.1 / 1;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
     filter: drop-shadow(0 15px 35px rgba(164, 19, 60, 0.15));
+    flex-shrink: 0;
 }
 
 /* Glass panel murni hanya sebagai background berbentuk hati */
@@ -72,24 +70,26 @@ p {
     -webkit-backdrop-filter: blur(15px);
     
     -webkit-mask-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z'/%3E%3C/svg%3E");
-    -webkit-mask-size: 100% 100%;
+    -webkit-mask-size: 110% 110%; /* Diperbesar agar area putih hati lebih mekar ke pinggir layar */
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     mask-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z'/%3E%3C/svg%3E");
-    mask-size: 100% 100%;
+    mask-size: 110% 110%; /* Diperbesar agar area putih hati lebih mekar ke pinggir layar */
     mask-repeat: no-repeat;
     mask-position: center;
 }
 
 /* Area khusus teks yang dijamin tidak terpotong */
 .content-area {
-    position: relative;
+    /* MENGUNCI TEKS AGAR MENGAMBANG, sehingga tidak akan memelarkan tinggi bentuk hati */
+    position: absolute;
+    top: 45%; /* Menaruh teks sedikit di atas pusaran hati */
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
-    /* Dikecilkan jadi 62% agar jarak teks ke pinggiran hati lebih longgar/luas */
-    width: 62%;
-    height: 62%;
-    /* Digeser ke atas sedikit agar menjauhi ujung lancip bawah hati */
-    transform: translateY(-9%);
+    
+    width: 65%;
+    height: auto;
     
     display: flex;
     flex-direction: column;
@@ -240,5 +240,43 @@ p {
     100% { 
         transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.5) rotate(720deg); 
         opacity: 0; 
+    }
+}
+
+/* Optimasi Layar HP (Mobile Responsiveness) */
+@media (max-width: 600px) {
+    .container {
+        /* Lebarkan full 100vw agar bentuk hati semaksimal mungkin */
+        width: 100vw; 
+    }
+
+    .content-area {
+        /* GARANSI MUTLAK: Teks tidak akan bisa melar lebih dari 215px */
+        width: 60%;
+        max-width: 215px; 
+        top: 41%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .romantic-font {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    
+    p {
+        font-size: 0.75rem;
+        margin-bottom: 5px;
+        line-height: 1.35;
+    }
+    
+    .btn {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .button-group {
+        margin-top: 8px;
+        gap: 6px;
     }
 }
