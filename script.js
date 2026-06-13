@@ -1,24 +1,24 @@
 const story = {
     1: [
-        { id: "text-1-1", text: "Halo Gizza ✨" },
+        { id: "text-1-1", text: "Halo Giz ✨" },
         { id: "text-1-2", text: "Ada sesuatu yang lumayan lama pengen gua omongin ke lu..." }
     ],
     2: [
         { id: "text-2-1", text: "Nggak kerasa ya kita udah lumayan deket hampir 2 bulan ini." },
         { id: "text-2-2", text: "Selama kita sering cerita bareng, jujur gua ngerasa kita nyambung banget." },
-        { id: "text-2-3", text: "Tiap kali kita quality time berdua, gua ngerasa nyaman parah dan seneng bisa deket sama lu." }
+        { id: "text-2-3", text: "Tiap kali kita spend time berdua, gua ngerasa nyaman dan seneng bisa deket sama lu." }
     ],
     3: [
-        { id: "text-3-1", text: "Mangkanya, gua pengen jujur aja ke lu sekarang." },
+        { id: "text-3-1", text: "Makanyaa, gua pengen jujur aja sama lu sekarang." },
         { id: "text-3-2", text: "Gua pengen kita jalanin hubungan yang lebih dalem dari sekadar temen." },
-        { id: "text-3-3", text: "Tapi santai aja, misal lu emang masih maunya kita HTS-an dulu juga gua gapapa kok. Intinya gua cuma mau ngungkapin perasaan gua aja." }
+        { id: "text-3-3", text: "Intinya gua cuma mau ngungkapin perasaan gua aja." }
     ],
     4: [
-        { id: "text-4-1", text: "Jadi... lu mau nggak jadi cewek gua?" }
+        { id: "text-4-1", text: "Jadi... will you be my girlfriend?" }
     ],
     5: [
-        { id: "text-5-1", text: "Wah, makasih banyak ya Gizza! 🥰" },
-        { id: "text-5-2", text: "Nanti kita jalan berdua beneran ya, anggep aja first date kita hahaha." }
+        { id: "text-5-1", text: "Wahh, makasih banyak yaa Giz! 🥰" },
+        { id: "text-5-2", text: "Nanti kita jalan berdua beneran yaa, anggep aja first date kita hehe." }
     ]
 };
 
