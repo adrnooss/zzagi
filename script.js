@@ -1,24 +1,24 @@
 const story = {
     1: [
-        { id: "text-1-1", text: "Hi Gizza ✨" },
-        { id: "text-1-2", text: "There's something I've been meaning to tell you..." }
+        { id: "text-1-1", text: "Halo Gizza ✨" },
+        { id: "text-1-2", text: "Ada sesuatu yang lumayan lama pengen gua omongin ke lu..." }
     ],
     2: [
-        { id: "text-2-1", text: "It's crazy how we've been close for almost 2 months now." },
-        { id: "text-2-2", text: "We've shared so much with each other, and honestly, I feel like we just really click." },
-        { id: "text-2-3", text: "Every time we spend quality time together, I feel super comfortable around you." }
+        { id: "text-2-1", text: "Nggak kerasa ya kita udah lumayan deket hampir 2 bulan ini." },
+        { id: "text-2-2", text: "Selama kita sering cerita bareng, jujur gua ngerasa kita nyambung banget." },
+        { id: "text-2-3", text: "Tiap kali kita quality time berdua, gua ngerasa nyaman parah dan seneng bisa deket sama lu." }
     ],
     3: [
-        { id: "text-3-1", text: "Because of that..." },
-        { id: "text-3-2", text: "I kinda want us to take this a bit deeper. Like, more than just friends." },
-        { id: "text-3-3", text: "But hey, if you just want to keep things casual or be in a situationship, I'm genuinely okay with that too. I just really needed to get this off my chest." }
+        { id: "text-3-1", text: "Mangkanya, gua pengen jujur aja ke lu sekarang." },
+        { id: "text-3-2", text: "Gua pengen kita jalanin hubungan yang lebih dalem dari sekadar temen." },
+        { id: "text-3-3", text: "Tapi santai aja, misal lu emang masih maunya kita HTS-an dulu juga gua gapapa kok. Intinya gua cuma mau ngungkapin perasaan gua aja." }
     ],
     4: [
-        { id: "text-4-1", text: "So... do you wanna be my girlfriend?" }
+        { id: "text-4-1", text: "Jadi... lu mau nggak jadi cewek gua?" }
     ],
     5: [
-        { id: "text-5-1", text: "You just made my day! 🥰" },
-        { id: "text-5-2", text: "Let's go on a proper date soon, yeah?" }
+        { id: "text-5-1", text: "Wah, makasih banyak ya Gizza! 🥰" },
+        { id: "text-5-2", text: "Nanti kita jalan berdua beneran ya, anggep aja first date kita hahaha." }
     ]
 };
 
@@ -170,10 +170,10 @@ function accept() {
     if (btnNo) {
         btnNo.style.display = 'none';
     }
-    
+
     // Panggil animasi kembang api bentuk cinta yang heboh!
     createHeartExplosion();
-    
+
     nextStep(5);
 }
 
@@ -181,7 +181,7 @@ function accept() {
 function createHeartExplosion() {
     const container = document.getElementById('falling-hearts');
     const emojis = ['💖', '💕', '🥰', '✨', '💘', '🌸', '💍'];
-    
+
     // Tiga gelombang ledakan cinta
     fireExplosion(container, emojis);
     setTimeout(() => fireExplosion(container, emojis), 400);
@@ -195,27 +195,27 @@ function fireExplosion(container, emojis) {
             const heart = document.createElement('div');
             heart.classList.add('heart-explosion');
             heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            
+
             // Mulai dari tengah layar
             heart.style.left = '50%';
             heart.style.top = '50%';
-            
+
             // Arah ledakan acak (lingkaran penuh)
             const angle = Math.random() * Math.PI * 2;
             const velocity = 25 + Math.random() * 55; // Seberapa jauh terbangnya
-            
+
             const tx = Math.cos(angle) * velocity + 'vw';
             const ty = Math.sin(angle) * velocity + 'vh';
-            
+
             heart.style.setProperty('--tx', tx);
             heart.style.setProperty('--ty', ty);
-            
+
             const duration = 1.5 + Math.random() * 2;
             heart.style.animation = `explode ${duration}s cubic-bezier(0.25, 1, 0.5, 1) forwards`;
             heart.style.fontSize = `${Math.random() * 30 + 20}px`;
-            
+
             container.appendChild(heart);
-            
+
             // Hapus elemen setelah selesai
             setTimeout(() => {
                 heart.remove();
@@ -228,30 +228,30 @@ function fireExplosion(container, emojis) {
 function createHearts() {
     const container = document.getElementById('falling-hearts');
     // Kumpulan emoji super romantis dan estetik
-    const symbols = ['💖', '💕', '💗', '🌸', '✨', '🤍', '🌷', '🦋']; 
-    
+    const symbols = ['💖', '💕', '💗', '🌸', '✨', '🤍', '🌷', '🦋'];
+
     setInterval(() => {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-        
+
         heart.style.left = Math.random() * 100 + 'vw';
-        
+
         // Waktu jatuh yang lembut dan lambat (10 - 22 detik)
-        const duration = Math.random() * 12 + 10; 
+        const duration = Math.random() * 12 + 10;
         const swayDuration = Math.random() * 3 + 2;
-        
+
         heart.style.animationDuration = `${duration}s, ${swayDuration}s`;
-        
+
         // Ukuran bervariasi (12px - 26px) agar terlihat ada yang jauh dan dekat
         heart.style.fontSize = `${Math.random() * 14 + 12}px`;
-        
+
         // Tambahan efek blur tipis secara acak untuk kesan sinematik (Depth of Field)
         heart.style.filter = `blur(${Math.random() * 1.5}px)`;
         heart.style.opacity = Math.random() * 0.5 + 0.4;
-        
+
         container.appendChild(heart);
-        
+
         setTimeout(() => {
             heart.remove();
         }, duration * 1000);
