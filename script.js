@@ -4,8 +4,8 @@ const story = {
         { id: "text-1-2", text: "There's something I've been meaning to tell you for a while..." }
     ],
     2: [
-        { id: "text-2-1", text: "It's crazy how we've been pretty close for almost 2 months now." },
-        { id: "text-2-2", text: "From all the times we've talked, honestly I feel like we really click." },
+        { id: "text-2-1", text: "Crazy how we've been getting close for almost 2 months now." },
+        { id: "text-2-2", text: "The more we talk, the more I feel like we really click." },
         { id: "text-2-3", text: "Every time we spend time together, I feel so comfortable and happy to be around you." }
     ],
     3: [
