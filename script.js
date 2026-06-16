@@ -1,24 +1,24 @@
 const story = {
     1: [
-        { id: "text-1-1", text: "Halo Giz ✨" },
-        { id: "text-1-2", text: "Ada sesuatu yang lumayan lama pengen gua omongin ke lu..." }
+        { id: "text-1-1", text: "Hi Giz ✨" },
+        { id: "text-1-2", text: "There's something I've been meaning to tell you for a while..." }
     ],
     2: [
-        { id: "text-2-1", text: "Nggak kerasa ya kita udah lumayan deket hampir 2 bulan ini." },
-        { id: "text-2-2", text: "Selama kita sering cerita bareng, jujur gua ngerasa kita nyambung banget." },
-        { id: "text-2-3", text: "Tiap kali kita spend time berdua, gua ngerasa nyaman dan seneng bisa deket sama lu." }
+        { id: "text-2-1", text: "It's crazy how we've been pretty close for almost 2 months now." },
+        { id: "text-2-2", text: "From all the times we've talked, honestly I feel like we really click." },
+        { id: "text-2-3", text: "Every time we spend time together, I feel so comfortable and happy to be around you." }
     ],
     3: [
-        { id: "text-3-1", text: "Makanyaa, gua pengen jujur aja sama lu sekarang." },
-        { id: "text-3-2", text: "Gua pengen kita jalanin hubungan yang lebih dalem dari sekadar temen." },
-        { id: "text-3-3", text: "Intinya gua cuma mau ngungkapin perasaan gua aja." }
+        { id: "text-3-1", text: "That's why, I just wanna be honest with you right now." },
+        { id: "text-3-2", text: "I want us to take this a step further, more than just friends." },
+        { id: "text-3-3", text: "Basically, I just wanted to express how I feel." }
     ],
     4: [
-        { id: "text-4-1", text: "Jadi... will you be my girlfriend?" }
+        { id: "text-4-1", text: "So... will you be my girlfriend?" }
     ],
     5: [
-        { id: "text-5-1", text: "Wahh, makasih banyak yaa Giz! 🥰" },
-        { id: "text-5-2", text: "Nanti kita jalan berdua beneran yaa, anggep aja first date kita hehe." }
+        { id: "text-5-1", text: "Wow, thank you so much Giz! 🥰" },
+        { id: "text-5-2", text: "Let's go on a proper date soon, let's call it our first date hehe." }
     ]
 };
 
