@@ -10,7 +10,7 @@ const story = {
     ],
     3: [
         { id: "text-3-1", text: "That's why, I just wanna be honest with you right now." },
-        { id: "text-3-2", text: "I want us to take this a step further, more than just friends." },
+        { id: "text-3-2", text: "I kinda want us to be more than just friends." },
         { id: "text-3-3", text: "Basically, I just wanted to express how I feel." }
     ],
     4: [
